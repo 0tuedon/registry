@@ -228,3 +228,17 @@ export const extractDirectoryData = (data: any[]) => {
 
   return { directoryData };
 };
+
+
+export function extractListOfHeadings(text: string): string[] {
+  const lines: string[] = text.split('\n');
+  const headings: string[] = [];
+
+  lines.forEach(line => {
+      if (line.match(/[#]+\s+\w+/gi)) {
+          headings.push(line.trim());
+      }
+  });
+
+  return headings;
+}
